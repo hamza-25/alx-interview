@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""algorithm to check boxes locked"""
 # from copy import deepcopy
 
 
@@ -66,7 +67,6 @@ def canUnlockAll(boxes):
             if key < len(boxes) and key != position:
                 unlocked[key] = key
         if len(unlocked) == len(boxes):
-            # print(unlocked)
             return True
         position += 1
     return False
