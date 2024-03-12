@@ -17,7 +17,7 @@ def canUnlockAll(boxes):
             while j < len(temp_boxes):
                 # print(f'start i: {i} j: {j}')
                 # print(i, j)
-                if j < len(temp_boxes[i]):
+                if j < len(temp_boxes[i]) - 1:
                     key = temp_boxes[i][j]
                     if temp_boxes[key][-1] is False:
                         temp_boxes[key][-1] = True
@@ -28,8 +28,10 @@ def canUnlockAll(boxes):
     locked = False
     for index, box in enumerate(temp_boxes):
         if box[-1]:
-            continue
-        else:
+            for key in temp_boxes[index]:
+                if key not in keys:
+                    keys.append(key)
+        if not box[-1]:
             if index in keys:
                 box[-1] = True
             else:
