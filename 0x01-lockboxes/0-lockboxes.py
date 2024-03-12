@@ -24,10 +24,22 @@ def canUnlockAll(boxes):
                         keys.append(key)
                 j += 1
         i += 1
+    # print(keys)
+    # print(temp_boxes)
 
+    for index, box in enumerate(temp_boxes):
+        if box[-1]:
+            # print(f'=>{box}')
+            for key in temp_boxes[index]:
+                if key not in keys:
+                    keys.append(key)
+        if not box[-1]:
+            if index in keys:
+                box[-1] = True
     locked = False
     for index, box in enumerate(temp_boxes):
         if box[-1]:
+            # print(f'=>{box}')
             for key in temp_boxes[index]:
                 if key not in keys:
                     keys.append(key)
