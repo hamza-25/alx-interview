@@ -50,7 +50,7 @@ try:
             print_logs(code_dict, size)
             code_dict = {'200': 0, '401': 0, '403': 0,
                          '404': 0, '405': 0, '500': 0, }
-            size = 0
+            # size = 0
             i = -1
         i += 1
 except KeyboardInterrupt:
