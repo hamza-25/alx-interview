@@ -1,14 +1,9 @@
 #!/usr/bin/python3
-"""
+"""script that reads stdin line by line and computes metrics
 """
 import sys
 import signal
 import re
-
-"""
-
-15.125.5.12 - [2024-03-26 15:09:28.624207] "GET /projects/260 HTTP/1.1" 200 15
-"""
 
 
 def signal_handler(sig, frame):
