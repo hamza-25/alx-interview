@@ -27,7 +27,6 @@ code_dict = {'200': 0, '301': 0, '400': 0, '401': 0,
 try:
     for line in sys.stdin:
 
-        counter += 1
         pattern = (
             r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - '
             r'\[(\d{1,4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}\.\d{1,6})\] '
@@ -37,6 +36,7 @@ try:
         match = re.search(pattern, line.strip())
 
         if match:
+            counter += 1
             status_code = match.group(3)
             file_size = match.group(4)
             if counter <= 10:
