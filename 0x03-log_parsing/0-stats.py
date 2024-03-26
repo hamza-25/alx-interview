@@ -53,5 +53,6 @@ try:
             # size = 0
             i = -1
         i += 1
-except KeyboardInterrupt:
+# except KeyboardInterrupt:
+finally:
     print_logs(code_dict, size)
