@@ -44,9 +44,9 @@ try:
                     code_dict[status_code] += 1
                 size += int(file_size)
 
-        if counter == 10:
-            print_logs(code_dict, size)
-            counter = 0
+            if counter == 10:
+                print_logs(code_dict, size)
+                counter = 0
 
 finally:
     print_logs(code_dict, size)
