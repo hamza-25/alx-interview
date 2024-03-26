@@ -20,13 +20,14 @@ def print_logs(code_dict, size):
 
 
 size = 0
-i = 0
+counter = 0
 code_dict = {'200': 0, '301': 0, '400': 0, '401': 0,
              '403': 0, '404': 0, '405': 0, '500': 0, }
 
 try:
     for line in sys.stdin:
 
+        counter += 1
         pattern = (
             r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - '
             r'\[(\d{1,4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}\.\d{1,6})\] '
@@ -42,9 +43,9 @@ try:
                 code_dict[status_code] += 1
                 size += int(file_size)
 
-        if i == 9:
+        if counter == 10:
             print_logs(code_dict, size)
-            i = -1
-        i += 1
+            counter = 0
+
 finally:
     print_logs(code_dict, size)
