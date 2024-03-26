@@ -7,6 +7,7 @@ import re
 
 
 def signal_handler(sig, frame):
+    """handler crtl + c"""
     print("File size: {}".format(size))
     for key, value in code_dict.items():
         print("{}: {}".format(key, value))
