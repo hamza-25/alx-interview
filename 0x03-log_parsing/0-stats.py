@@ -45,12 +45,13 @@ try:
             if status_code in code_dict.keys():
                 code_dict[status_code] += 1
                 size += int(file_size)
-        i += 1
-        if i == 10:
+
+        if i == 9:
             print_logs(code_dict, size)
             code_dict = {'200': 0, '401': 0, '403': 0,
                          '404': 0, '405': 0, '500': 0, }
             size = 0
-            i = 0
+            i = -1
+        i += 1
 except KeyboardInterrupt:
     print_logs(code_dict, size)
