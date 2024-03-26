@@ -3,30 +3,25 @@
 """
 import sys
 import re
-import signal
 
 
 def print_logs(code_dict, size):
-    """print format logs"""
+    """print format logs
+    Args:
+        code_dict: dict of status codes
+        size: total of the file
+    Returns:
+        None
+    """
     print("File size: {}".format(size))
     for key, value in code_dict.items():
         if value != 0:
             print("{}: {}".format(key, value))
 
 
-# def signal_handler(sig, frame):
-#     """handler crtl + c"""
-#     print_logs(code_dict, size)
-#     sys.exit(0)
-
-
-# signal.signal(signal.SIGINT, signal_handler)
-
-
-size = 0
+size, i = 0
 code_dict = {'200': 0, '301': 0, '400': 0, '401': 0,
              '403': 0, '404': 0, '405': 0, '500': 0, }
-i = 0
 
 try:
     for line in sys.stdin:
@@ -48,11 +43,7 @@ try:
 
         if i == 9:
             print_logs(code_dict, size)
-            # code_dict = {'200': 0, '301': 0, '400': 0, '401': 0,
-            #              '403': 0, '404': 0, '405': 0, '500': 0, }
-            # size = 0
             i = -1
         i += 1
-# except KeyboardInterrupt:
 finally:
     print_logs(code_dict, size)
