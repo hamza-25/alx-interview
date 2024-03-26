@@ -14,13 +14,13 @@ def print_logs(code_dict, size):
             print("{}: {}".format(key, value))
 
 
-def signal_handler(sig, frame):
-    """handler crtl + c"""
-    print_logs(code_dict, size)
-    sys.exit(0)
+# def signal_handler(sig, frame):
+#     """handler crtl + c"""
+#     print_logs(code_dict, size)
+#     sys.exit(0)
 
 
-signal.signal(signal.SIGINT, signal_handler)
+# signal.signal(signal.SIGINT, signal_handler)
 
 
 size = 0
@@ -33,8 +33,8 @@ try:
 
         pattern = (
             r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - '
-            r'\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{1,6})\] '
-            r'"GET /projects/260 HTTP/1\.1" (\d{3}) (\d{1,10})'
+            r'\[(\d{4}-\d{2}-\d{2} \d{1,2}:\d{1,2}:\d{1,2}\.\d{1,6})\] '
+            r'"GET /projects/260 HTTP/1\.1" (\d{3}) (\d{1,4})'
         )
 
         match = re.search(pattern, line.strip())
