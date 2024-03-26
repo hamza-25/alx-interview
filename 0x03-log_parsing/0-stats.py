@@ -19,11 +19,13 @@ def print_logs(code_dict, size):
     """print format logs"""
     print("File size: {}".format(size))
     for key, value in code_dict.items():
-        print("{}: {}".format(key, value))
+        if value != 0:
+            print("{}: {}".format(key, value))
 
 
 size = 0
-code_dict = {'200': 0, '401': 0, '403': 0, '404': 0, '405': 0, '500': 0, }
+code_dict = {'200': 0, '301': 0, '400': 0, '401': 0,
+             '403': 0, '404': 0, '405': 0, '500': 0, }
 i = 0
 
 try:
