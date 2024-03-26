@@ -35,7 +35,7 @@ try:
             file_size = match.group(4)
             if status_code in code_dict.keys():
                 code_dict[status_code] += 1
-            size += int(file_size)
+                size += int(file_size)
 
         if i == 9:
             print("File size: {}".format(size))
