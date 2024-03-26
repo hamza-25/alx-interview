@@ -30,20 +30,42 @@ pattern = (
             r'"GET /projects/260 HTTP/1\.1" (\d{3}) (\d{1,4})'
         )
 
+# try:
+#     for line in sys.stdin:
+#         match = re.search(pattern, line.strip())
+
+#         if match:
+#             counter += 1
+#             status_code = match.group(3)
+#             file_size = match.group(4)
+#             size += int(file_size)
+
+#             if status_code in code_dict.keys():
+#                 code_dict[status_code] += 1
+
+#             if counter == 10:
+#                 print_logs(code_dict, size)
+#                 counter = 0
+
+# finally:
+#     print_logs(code_dict, size)
+# ----------------------------------
 try:
     for line in sys.stdin:
-        match = re.search(pattern, line.strip())
+        line = line.split()
+        line = line[::-1]
 
-        if match:
+        if len(line) > 2:
             counter += 1
-            status_code = match.group(3)
-            file_size = match.group(4)
-            size += int(file_size)
 
-            if status_code in code_dict.keys():
-                code_dict[status_code] += 1
+            if counter <= 10:
+                size += int(line[0])
+                status_code = line[1]
 
-            if counter == 10:
+                if (status_code in code_dict.keys()):
+                    code_dict[status_code] += 1
+
+            if (counter == 10):
                 print_logs(code_dict, size)
                 counter = 0
 
