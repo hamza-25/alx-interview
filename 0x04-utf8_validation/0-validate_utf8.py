@@ -4,7 +4,7 @@
 
 
 def validUTF8(data):
-    """validate the ASCCI code
+    """validate UTF-8 encoding
     """
     # for num in data:
     #     if num not in range(0, 127):
