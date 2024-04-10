@@ -1,18 +1,21 @@
 #!/usr/bin/python3
-"""N Queens placement on NxN chessboard"""
-
-
+"""Module N queens
+"""
 import sys
 
 
-def generate_solutions(row, column):
+def find_solutions(row, column):
+    """function that find solution
+    """
     solution = [[]]
     for queen in range(row):
-        solution = place_queen(queen, column, solution)
+        solution = N_palce_queen(queen, column, solution)
     return solution
 
 
-def place_queen(queen, column, prev_solution):
+def N_palce_queen(queen, column, prev_solution):
+    """function that place n in place
+    """
     safe_position = []
     for array in prev_solution:
         for x in range(column):
@@ -22,6 +25,8 @@ def place_queen(queen, column, prev_solution):
 
 
 def is_safe(q, x, array):
+    """check save place of n
+    """
     if x in array:
         return (False)
     else:
@@ -29,32 +34,28 @@ def is_safe(q, x, array):
                    for column in range(q))
 
 
-def init():
-    if len(sys.argv) != 2:
-        print("Usage: nqueens N")
-        sys.exit(1)
-    if sys.argv[1].isdigit():
-        n = int(sys.argv[1])
-    else:
-        print("N must be a number")
-        sys.exit(1)
-    if n < 4:
-        print("N must be at least 4")
-        sys.exit(1)
-    return (n)
-
-
 def n_queens():
+    """main function to start logic
+    """
 
-    n = init()
-    # generate all solutions
-    solutions = generate_solutions(n, n)
-    # print solutions
+    if len(sys.argv) >= 3:
+        print('Usage: nqueens N')
+        sys.exit(1)
+
+    try:
+        if int(sys.argv[1]) < 4:
+            print('N must be at least 4')
+            sys.exit(1)
+    except ValueError:
+        print('N must be a number')
+
+    n = int(sys.argv[1])
+    solutions = find_solutions(n, n)
     for array in solutions:
-        clean = []
+        new_list = []
         for q, x in enumerate(array):
-            clean.append([q, x])
-        print(clean)
+            new_list.append([q, x])
+        print(new_list)
 
 
 if __name__ == '__main__':
