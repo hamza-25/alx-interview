@@ -60,7 +60,7 @@ def canUnlockAll(boxes):
     unlocked_keys = {}
     for box in boxes:
         if index == 0 or len(box) == 0:
-            unlocked_keys[index] = 'always'
+            unlocked_keys[index] = "always"
         for key in box:
             if key < len(boxes) and key != index:
                 unlocked_keys[key] = key
