@@ -3,17 +3,6 @@
 """
 import sys
 
-if len(sys.argv) >= 3:
-    print('Usage: nqueens N')
-    exit(1)
-
-try:
-    if int(sys.argv[1]) < 4:
-        print('N must be at least 4')
-        exit(1)
-except ValueError:
-    print('N must be a number')
-
 
 def find_solutions(row, column):
     """function that find solution
@@ -48,6 +37,18 @@ def is_safe(q, x, array):
 def n_queens():
     """main function to start logic
     """
+
+    if len(sys.argv) >= 3:
+        print('Usage: nqueens N')
+        exit(1)
+
+    try:
+        if int(sys.argv[1]) < 4:
+            print('N must be at least 4')
+            exit(1)
+    except ValueError:
+        print('N must be a number')
+
     n = int(sys.argv[1])
     solutions = find_solutions(n, n)
     for array in solutions:
