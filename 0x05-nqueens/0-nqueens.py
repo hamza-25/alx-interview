@@ -48,6 +48,7 @@ def n_queens():
             sys.exit(1)
     except ValueError:
         print('N must be a number')
+        sys.exit(1)
 
     n = int(sys.argv[1])
     solutions = find_solutions(n, n)
