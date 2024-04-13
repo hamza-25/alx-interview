@@ -59,17 +59,17 @@
 #     """main function that start logic
 #     """
 
-#     if len(argv) >= 3:
+#     if len(argv) != 2:
 #         print('Usage: nqueens N')
-#         exit(1)
+#         sys.exit(1)
 
 #     try:
 #         if int(argv[1]) < 4:
 #             print('N must be at least 4')
-#             exit(1)
+#             sys.exit(1)
 #     except ValueError:
 #         print('N must be a number')
-#         exit(1)
+#         sys.exit(1)
 
 #     board = [[0] * N for _ in range(N)]
 #     if not solve_n_queens(board, 0, N):
@@ -108,24 +108,35 @@ def is_safe(q, x, array):
                    for column in range(q))
 
 
-def init():
-    if len(sys.argv) != 2:
-        print("Usage: nqueens N")
-        sys.exit(1)
-    if sys.argv[1].isdigit():
-        n = int(sys.argv[1])
-    else:
-        print("N must be a number")
-        sys.exit(1)
-    if n < 4:
-        print("N must be at least 4")
-        sys.exit(1)
-    return (n)
+# def init():
+#     if len(sys.argv) != 2:
+#         print("Usage: nqueens N")
+#         sys.exit(1)
+#     if sys.argv[1].isdigit():
+#         n = int(sys.argv[1])
+#     else:
+#         print("N must be a number")
+#         sys.exit(1)
+#     if n < 4:
+#         print("N must be at least 4")
+#         sys.exit(1)
+#     return (n)
 
 
 def n_queens():
 
-    n = init()
+    if len(sys.argv) != 2:
+        print('Usage: nqueens N')
+        sys.exit(1)
+
+    try:
+        if int(sys.argv[1]) < 4:
+            print('N must be at least 4')
+            sys.exit(1)
+    except ValueError:
+        print('N must be a number')
+        sys.exit(1)
+    n = int(sys.argv[1])
     # generate all solutions
     solutions = generate_solutions(n, n)
     # print solutions
