@@ -4,18 +4,6 @@
 from sys import argv
 
 
-if len(argv) >= 3:
-    print('Usage: nqueens N')
-    exit(1)
-
-try:
-    if int(argv[1]) < 4:
-        print('N must be at least 4')
-        exit(1)
-except ValueError:
-    print('N must be a number')
-
-
 def is_safe(board, row, col, N):
     """function that check safe place to place Q
     """
@@ -70,6 +58,19 @@ def print_solution(board, N):
 def n_queens(N):
     """main function that start logic
     """
+
+    if len(argv) >= 3:
+        print('Usage: nqueens N')
+        exit(1)
+
+    try:
+        if int(argv[1]) < 4:
+            print('N must be at least 4')
+            exit(1)
+    except ValueError:
+        print('N must be a number')
+        exit(1)
+
     board = [[0] * N for _ in range(N)]
     if not solve_n_queens(board, 0, N):
         print("Solution does not exist")
@@ -78,6 +79,5 @@ def n_queens(N):
     print_solution(board, N)
     return True
 
-
-n_queens(int(argv[1]))
-
+if __name__ == '__main__':
+    n_queens(int(argv[1]))
