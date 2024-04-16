@@ -45,10 +45,12 @@ const request = require('request');
 //   });
 // });
 
+const itemID = process.argv[2] - 1;
+
 request('https://swapi-api.alx-tools.com/api/films/', (error, response, body) => {
   if (!error && response.statusCode === 200) {
     const data = JSON.parse(body);
-    const itemNeeded = data.results[2];
+    const itemNeeded = data.results[itemID];
     const characters = itemNeeded.characters;
     const promises = [];
 
@@ -67,7 +69,7 @@ request('https://swapi-api.alx-tools.com/api/films/', (error, response, body) =>
 
     Promise.all(promises).then((results) => {
       results.forEach((result) => {
-        console.log(`${result.index} - ${result.name}`);
+        console.log(`${result.name}`);
       });
     }).catch((error) => {
       console.error('Error:', error);
