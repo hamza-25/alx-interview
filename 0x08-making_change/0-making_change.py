@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Define module make change
+"""
+
 
 def makeChange(coins, total):
     """determine the fewest number of
@@ -13,6 +16,8 @@ def makeChange(coins, total):
     for coin in coins:
         for i in range(coin, total + 1):
             dp[i] = min(dp[i], dp[i - coin] + 1)
+
     if isinstance(dp[total], float):
         return -1
+
     return dp[total]
