@@ -62,7 +62,7 @@ def isWinner(x, nums):
                     if k % j == 0:
                         nums[i] = 0  # Mark as multiple
 
-        if not maria_turn:
+        if maria_turn:
             maria_wins += 1 if sum(nums) > 0 else 0
         else:
             ben_wins += 1 if sum(nums) > 0 else 0
