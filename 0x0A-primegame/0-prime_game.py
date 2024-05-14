@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """defined module for game prime number
 """
-from typing import List
 
 
-def is_prime_number(num: int) -> bool:
+def is_prime_number(num):
     """check the number is prime or not
     Return boolean
     """
@@ -16,7 +15,7 @@ def is_prime_number(num: int) -> bool:
     return True
 
 
-def multiple_of_num(num: int, nums_list: List[int]) -> List[int]:
+def multiple_of_num(num):
     """Generate a list of multiples of num."""
     multi_nums = []
     i = 2
@@ -29,7 +28,7 @@ def multiple_of_num(num: int, nums_list: List[int]) -> List[int]:
     return multi_nums
 
 
-def isWinner(x: int, nums: List[int]) -> str:
+def isWinner(x, nums):
     """Determine the winner of the game."""
     round = 1
     is_maria_turn = False
@@ -37,7 +36,7 @@ def isWinner(x: int, nums: List[int]) -> str:
         if round > x:
             break
         if is_prime_number(num):
-            multiples = multiple_of_num(num, nums)
+            multiples = multiple_of_num(num)
             for i in range(len(nums)):
                 if nums[i] in multiples:
                     nums[i] = 0
