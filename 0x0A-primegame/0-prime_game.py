@@ -33,7 +33,6 @@ def isWinner(x, nums):
     round = 1
     ben_win = 0
     maria_win = 0
-    is_maria_turn = False
     for index, num in enumerate(nums):
         if round > x:
             break
@@ -42,13 +41,10 @@ def isWinner(x, nums):
             for i in range(len(nums)):
                 if nums[i] in multiples:
                     nums[i] = 0
-            if (index % 2) != 0:
-                # return "Maria"
-                maria_win += 1
-            else:
-                # return "Ben"
+            if (round % 2) != 0:
                 ben_win += 1
-        is_maria_turn = not is_maria_turn
+            else:
+                maria_win += 1
         round += 1
     if maria_win == ben_win:
         return None
