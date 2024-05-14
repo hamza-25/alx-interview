@@ -47,11 +47,11 @@ def isWinner(x, nums):
             else:
                 maria_win += 1
             # print('{}: Maria{} Ben {}'.format(index, maria_win, ben_win))
-        else:
-            if (round % 2) == 0:
-                return 'Ben'
-            else:
-                return 'Maria'
+        # else:
+        #     if (round % 2) == 0:
+        #         return 'Ben'
+        #     else:
+        #         return 'Maria'
         round += 1
     if maria_win == ben_win:
         return None
