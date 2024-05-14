@@ -4,10 +4,12 @@
 
 
 def is_prime_number(num):
-    """Check if the number is prime or not."""
-    if num <= 1:
+    """check the number is prime or not
+    Return boolean
+    """
+    if num == 0:
         return False
-    for i in range(2, int(num**0.5) + 1):
+    for i in range(2, num):
         if num % i == 0:
             return False
     return True
