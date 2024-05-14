@@ -34,7 +34,7 @@ def isWinner(x, nums):
     ben_win = 0
     maria_win = 0
     is_maria_turn = False
-    for num in nums:
+    for index, num in enumerate(nums):
         if round > x:
             break
         if is_prime_number(num):
@@ -42,7 +42,7 @@ def isWinner(x, nums):
             for i in range(len(nums)):
                 if nums[i] in multiples:
                     nums[i] = 0
-            if is_maria_turn:
+            if (index % 2) != 0:
                 # return "Maria"
                 maria_win += 1
             else:
