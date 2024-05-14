@@ -42,7 +42,7 @@ def isWinner(x, nums):
                 if nums[i] in multiples:
                     nums[i] = 0
             # print(round % 2)
-            if (round % 2) == 0:
+            if (index % 2) == 0:
                 ben_win += 1
             else:
                 maria_win += 1
