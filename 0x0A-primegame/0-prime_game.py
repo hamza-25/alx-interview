@@ -41,17 +41,17 @@ def isWinner(x, nums):
             for i in range(len(nums)):
                 if nums[i] in multiples:
                     nums[i] = 0
-            print(round % 2)
+            # print(round % 2)
             if (round % 2) == 0:
                 ben_win += 1
             else:
                 maria_win += 1
-            print('{}: Maria{} Ben {}'.format(index, maria_win, ben_win))
-        # else:
-        #     if (round % 2) == 0:
-        #         return 'Ben'
-        #     else:
-        #         return 'Maria'
+            # print('{}: Maria{} Ben {}'.format(index, maria_win, ben_win))
+        else:
+            if (round % 2) == 0:
+                return 'Ben'
+            else:
+                return 'Maria'
         round += 1
     if maria_win == ben_win:
         return None
